@@ -1,0 +1,27 @@
+---
+title: "Maps With Leaflet"
+author: "generalinsight"
+date: "July 31, 2017"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+A map of toronto with few random markers. The map is created on 31st July 2017. 
+
+```{r, echo = FALSE}
+library(leaflet)
+
+set.seed(1)
+df <- data.frame(lat = runif(10, min = 43.65, max = 43.95),
+                 lng = runif(10, min = -79.6, max = -79.4))
+
+df %>% 
+        leaflet() %>%
+        addTiles() %>%
+        addMarkers()
+
+```
+
